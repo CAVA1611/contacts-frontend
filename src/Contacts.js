@@ -4,13 +4,17 @@ import Alert from './Alert.js';
 import NewContact from './NewContact.js';
 import EditContact from './EditContact.js';
 
+
 class Contacts extends React.Component {
     constructor(props)  {
         super(props);
         this.state = {
             errorInfo: null,
+
             contacts: this.props.contacts,
             isEditing: {}
+            contacts: this.props.contacts
+
         }
         this.handleEdit = this.handleEdit.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
@@ -19,6 +23,7 @@ class Contacts extends React.Component {
     }
 
     handleEdit(contact) {
+
         this.setState(prevState => ({
             isEditing: {...prevState.isEditing, [contact.name]: contact}
             //errorInfo: contact.name
@@ -42,6 +47,9 @@ class Contacts extends React.Component {
             }
         })
     }
+        this.setState({
+            errorInfo: contact.name
+        });
 
     handleChange(name, contact) {
         this.setState(prevState => ({
@@ -79,6 +87,7 @@ class Contacts extends React.Component {
         this.setState(prevState => {
             const contacts = prevState.contacts;
             if (! contacts.find(c => c.name === contact.name)) {
+            if (! contacts.find(c => c.name == contact.name)) {
                 return ({
                     contacts: [...prevState.contacts,contact]
                 });
@@ -111,6 +120,7 @@ class Contacts extends React.Component {
                             onCancel={this.handleCancel.bind(this, contact.name)}
                             onChange={this.handleChange.bind(this, contact.name)}
                             onSave={this.handleSave.bind(this, contact.name)}/>
+                        <Contact contact = {contact} onEdit={this.handleEdit}/>
                     )}
                 </table>
             </div>
