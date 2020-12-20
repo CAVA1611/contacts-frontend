@@ -1,0 +1,17 @@
+import React from 'react';
+
+function Alert({message, onClose}) {
+    if (message == null) {
+        return null;
+    }
+    return (
+        <div className="alert alert-warning alert-dismissible" role="alert">
+            <strong>Error!</strong>{message}
+            <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={() => onClose()}>
+                <span>&times;</span>
+            </button>
+        </div>
+    );
+}
+
+export default Alert;
