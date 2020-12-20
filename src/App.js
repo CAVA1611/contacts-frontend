@@ -1,18 +1,16 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Contact from './Contact.js';
+import Contacts from './Contacts.js';
 
 function App() {
-  const contact = {
-    name: "Andres",
-    phone: "0987534265"
-  } ;
-
+  const contacts = [
+    {name: "Andres", phone: "0987534265"},   {name: "Cesar", phone: "0995134542"}
+  ];
   return (
   <div>
     <h1>Hello Word ..!!</h1>
-    <Contact contact={contact}/>
+    <Contacts contacts={contacts}/>
   </div>
   );
 }
