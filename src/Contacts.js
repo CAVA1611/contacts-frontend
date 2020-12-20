@@ -12,8 +12,7 @@ class Contacts extends React.Component {
             errorInfo: null,
 
             contacts: this.props.contacts,
-            isEditing: {}
-            contacts: this.props.contacts
+            isEditing: {},
 
         }
         this.handleEdit = this.handleEdit.bind(this);
@@ -35,7 +34,7 @@ class Contacts extends React.Component {
     handleDelete(contact) {
         this.setState(prevState => ({
             contacts: prevState.contacts.filter((c) => c.name !== contact.name)
-        }))
+        }));
     }
 
     handleCancel(name, contact) {
@@ -45,11 +44,9 @@ class Contacts extends React.Component {
             return {
                 isEditing: isEditing
             }
-        })
-    }
-        this.setState({
-            errorInfo: contact.name
         });
+    }
+
 
     handleChange(name, contact) {
         this.setState(prevState => ({
@@ -87,7 +84,6 @@ class Contacts extends React.Component {
         this.setState(prevState => {
             const contacts = prevState.contacts;
             if (! contacts.find(c => c.name === contact.name)) {
-            if (! contacts.find(c => c.name == contact.name)) {
                 return ({
                     contacts: [...prevState.contacts,contact]
                 });
@@ -112,7 +108,7 @@ class Contacts extends React.Component {
                     <NewContact onAddContact={this.addContact}/>
                     {this.state.contacts.map((contact) =>
                         ! this.state.isEditing[contact.name] ?
-                        <Contact key={contact.name} contact = {contact} 
+                        <Contact key={contact.name} contact = {contact}
                             onEdit={this.handleEdit}
                             onDelete={this.handleDelete}/>
                         :
@@ -120,7 +116,6 @@ class Contacts extends React.Component {
                             onCancel={this.handleCancel.bind(this, contact.name)}
                             onChange={this.handleChange.bind(this, contact.name)}
                             onSave={this.handleSave.bind(this, contact.name)}/>
-                        <Contact contact = {contact} onEdit={this.handleEdit}/>
                     )}
                 </table>
             </div>
