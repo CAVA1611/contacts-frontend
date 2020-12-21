@@ -9,7 +9,7 @@ function App() {
   ];
   return (
   <div>
-    <h1>Hello Word ..!!</h1>
+    <h1>Contacts - FIS 2020</h1>
     <Contacts contacts={contacts}/>
   </div>
   );
